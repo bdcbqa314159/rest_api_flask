@@ -59,7 +59,7 @@ def get_item(item_id):
 
 
 @app.post("/item")
-def create_item(name):
+def create_item():
     item_data = request.get_json()
     if "price" not in item_data or "store_id" not in item_data or "name" not in item_data:
         abort(400, message="Bad request. Ensure 'price', 'store_id' and 'name' are provided in the JSON payload.")
@@ -93,7 +93,7 @@ def update_item(item_id):
         abort(400, message="Bad request. Ensure 'price' and 'name' are included in the JSON payload.")
     try:
         item = items[item_id]
-        item != item_data
+        item |= item_data
         return item
     
     except KeyError:
