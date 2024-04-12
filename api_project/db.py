@@ -1,5 +1,4 @@
 #pylint: disable-all
+from flask_sqlalchemy import SQLAlchemy
 
-stores = {}
-
-items = {}
+db = SQLAlchemy()
